@@ -5,9 +5,9 @@
 </nav>
 
 <!-- main app container -->
-<div class="app-container" [ngClass]="{ 'bg-light': user }">
+<div class="app-container" [ngClass]="{ 'bg-light': user }" >
 
-  <div class="row">
+  <div class="row" *ngIf="user">
     <nav class="d-md-block bg-light sidebar" *ngIf="user">
       <div class="sidebar-sticky">
         <ul class="nav flex-column">
@@ -40,51 +40,15 @@
     </nav>
 
 
-    <div class="col-9" *ngIf="user" >
+    <div class="col-10" *ngIf="user" >
       <alert></alert>
       <router-outlet></router-outlet>
     </div>
-    <div class="col-12" *ngIf="!user" >
-      <alert></alert>
-      <router-outlet></router-outlet>
-    </div>
-
   </div>
 
 
-  <!-- <nav class="col-3 d-md-block bg-light sidebar" *ngIf="user">
-    <div class="sidebar-sticky">
-      <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link " routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-            <i class="fas fa-home"></i> Trang chủ
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link " [routerLinkActiveOptions]="{exact: true}" routerLink="/users"
-            routerLinkActive="active">
-            <i class="fas fa-user"></i> Quản lý người dùng
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link " routerLink="/demo" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">
-            <i class="fas fa-user"></i> Quản lý sản phẩm
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" (click)="logout()">
-            <i class="fas fa-sign-out-alt"></i> Đăng xuất
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-  <alert></alert>
-  <router-outlet></router-outlet> -->
+  <alert *ngIf="!user"></alert>
+  <router-outlet *ngIf="!user"></router-outlet>
 
 </div>
 
