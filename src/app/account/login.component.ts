@@ -1,4 +1,7 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Users } from './../model/user';
+import { UserServiceService } from './../service/user-service.service';
+import { AuthService } from './../service/auth.service';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
@@ -10,13 +13,16 @@ export class LoginComponent implements OnInit {
     form: FormGroup;
     loading = false;
     submitted = false;
+    user: Users
 
     constructor(
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
         private accountService: AccountService,
-        private alertService: AlertService
+        private alertService: AlertService,
+        private AuthService: AuthService,
+        private UserServiceService: UserServiceService
     ) { }
 
     ngOnInit() {
@@ -24,6 +30,9 @@ export class LoginComponent implements OnInit {
             username: ['', Validators.required],
             password: ['', Validators.required]
         });
+
+        this.user  = new Users()
+
     }
 
     // convenience getter for easy access to form fields
@@ -40,7 +49,16 @@ export class LoginComponent implements OnInit {
             return;
         }
 
+
+
         this.loading = true;
+        //login with firabase
+        this.UserServiceService.getUserByEmail(this.f.username.value).subscribe(data=>{
+          this.user = Object.assign({}, ...data)
+          console.log("---role --> " + this.user.vaiTro);
+
+        })
+        this.AuthService.SignIn(this.f.username.value, this.f.password.value);
         this.accountService.login(this.f.username.value, this.f.password.value)
             .pipe(first())
             .subscribe({

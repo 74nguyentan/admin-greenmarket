@@ -1,8 +1,11 @@
-﻿import { NgModule } from '@angular/core';
+﻿import { environment } from './../environments/environment';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers';
 
@@ -17,7 +20,10 @@ import { HomeComponent } from './home';
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
-        AppRoutingModule
+        AppRoutingModule,
+        AngularFirestoreModule,
+        AngularFireAuthModule,
+        AngularFireModule.initializeApp(environment.firebase)
     ],
     declarations: [
         AppComponent,
