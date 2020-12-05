@@ -31,21 +31,28 @@
 </table> -->
 
 
-<div class="container-fluid mt-5">
+<div class="container-fluid">
 
   <div class="limiter col-md-12">
     <div class="container-table100">
 
 
       <div class="row w-100 pb-3">
-        <div class="col-md-9 w-100 text-center">
+        <div class="col-md-7 w-100 text-center">
           <h1 > Danh sách sản phẩm</h1>
-          <button routerLink="add">oke</button>
+        </div>
+        <div class="col-md-2" >
+          <a routerLink="adduser" >
+            <button class="custom-btn btn-3 ml-5">
+              <span><i class="fas fa-edit"></i> Thêm mới</span>
+            </button>
+          </a>
         </div>
         <div class="col-md-3">
-
-          <input class="form-control form-control-lg form-control-borderless"  type="search" placeholder="Nhập để tìm kiếm">
-
+          <!-- <input class="search"  type="search" placeholder="Nhập để tìm kiếm"> -->
+          <div id="demo-2">
+            <input type="search" placeholder="Search">
+          </div>
         </div>
       </div>
       <div class="wrap-table100">
@@ -54,13 +61,13 @@
             <table>
               <thead >
                 <tr class="row100 head">
-                  <th class="cell100 column1">Tên tài khoản</th>
+                  <th class="cell100 column1">Họ và tên </th>
                   <th class="cell100 column2">Email</th>
                   <th class="cell100 column3">Điện thoại</th>
                   <th class="cell100 column4">Địa chỉ</th>
-                  <th class="cell100 column5">Quản lý</th>
-                  <!-- <th class="cell100 column6">Hình ảnh</th>
-                  <th class="cell100 column7"></th> -->
+                  <th class="cell100 column5">Vai trò</th>
+                  <th class="cell100 column6">Quản lý</th>
+                  <!-- <th class="cell100 column7"></th> -->
                 </tr>
               </thead>
             </table>
@@ -70,60 +77,95 @@
             <table class="table table-hover">
               <tbody>
                 <tr class="row100 body" >
-                  <td class="cell100 column1"></td>
-                  <td class="cell100 column2"></td>
-                  <td class="cell100 column3"></td>
-                  <td class="cell100 column4"></td>
-                  <!-- <td class="cell100 column5"></td> -->
-                  <!-- <td class="cell100 column5"></td>
-
-                  <td class="cell100 column6">
-                    <div id="carousel-simple" class="carousel slide" data-ride="carousel" style="width: 100%;">
-                      <ol class="carousel-indicators">
-                        <li data-target="#carousel-simple" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-simple" data-slide-to="1"></li>
-                        <li data-target="#carousel-simple" data-slide-to="2"></li>
-                        <li data-target="#carousel-simple" data-slide-to="3"></li>
-                      </ol>
-                      <div class="carousel-inner" role="listbox">
-                        <div class="item active">
-                          <img
-                            src=""
-                            alt="" class="d-block w-100" />
-                        </div>
-                        <div class="item">
-                          <img
-                            src=""
-                            alt="" class="d-block w-100" />
-                        </div>
-                        <div class="item">
-                          <img
-                            src=""
-                            alt="" class="d-block w-100" />
-                        </div>
-                        <div class="item">
-                          <img
-                            src=""
-                            alt="" class="d-block w-100" />
-                        </div>
-                      </div>
-                    </div>
-                  </td> -->
-
-                  <td class="cell100 column5" id="edit">
-                    <button class="custom-btn btn-3 mb-5 mt-3" >
-                      <span><i class="fas fa-edit"></i> Khóa</span>
-                    </button>
-                    <button class="custom-btn btn-2 mb-5" >
-                      <span><i class="fas fa-times"></i> Xóa</span>
-                    </button>
-                    <!-- <button class="custom-btn btn-1">
-                      <span><i class="fas fa-clock"></i> Gia hạn</span>
-                    </button> -->
+                  <td class="cell100 column1">Nguyễn Vân Tân ML</td>
+                  <td class="cell100 column2">TanML@gmail.com</td>
+                  <td class="cell100 column3">1900100cos</td>
+                  <td class="cell100 column4">Quảng trị</td>
+                  <td class="cell100 column5">Bảo vệ</td>
+                  <td class="cell100 column6" >
+                    <select name="lock" id="lock" class="lock">
+                      <option value="Hoạt động">Hoạt động</option>
+                      <option value="1 Ngày">1 Ngày</option>
+                      <option value="3 Ngày">3 Ngày</option>
+                      <option value="7 Ngày">7 Ngày</option>
+                    </select>
                   </td>
                 </tr>
-
-
+                <tr class="row100 body" >
+                  <td class="cell100 column1">Nguyễn Vân Tân ML</td>
+                  <td class="cell100 column2">TanML@gmail.com</td>
+                  <td class="cell100 column3">1900100cos</td>
+                  <td class="cell100 column4">Quảng trị</td>
+                  <td class="cell100 column5">Bảo vệ</td>
+                  <td class="cell100 column6" >
+                    <select name="lock" id="lock" class="lock">
+                      <option value="Hoạt động">Hoạt động</option>
+                      <option value="1 Ngày">1 Ngày</option>
+                      <option value="3 Ngày">3 Ngày</option>
+                      <option value="7 Ngày">7 Ngày</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr class="row100 body" >
+                  <td class="cell100 column1">Nguyễn Vân Tân ML</td>
+                  <td class="cell100 column2">TanML@gmail.com</td>
+                  <td class="cell100 column3">1900100cos</td>
+                  <td class="cell100 column4">Quảng trị</td>
+                  <td class="cell100 column5">Bảo vệ</td>
+                  <td class="cell100 column6" >
+                    <select name="lock" id="lock" class="lock">
+                      <option value="Hoạt động">Hoạt động</option>
+                      <option value="1 Ngày">1 Ngày</option>
+                      <option value="3 Ngày">3 Ngày</option>
+                      <option value="7 Ngày">7 Ngày</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr class="row100 body" >
+                  <td class="cell100 column1">Nguyễn Vân Tân ML</td>
+                  <td class="cell100 column2">TanML@gmail.com</td>
+                  <td class="cell100 column3">1900100cos</td>
+                  <td class="cell100 column4">Quảng trị</td>
+                  <td class="cell100 column5">Bảo vệ</td>
+                  <td class="cell100 column6" >
+                    <select name="lock" id="lock" class="lock">
+                      <option value="Hoạt động">Hoạt động</option>
+                      <option value="1 Ngày">1 Ngày</option>
+                      <option value="3 Ngày">3 Ngày</option>
+                      <option value="7 Ngày">7 Ngày</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr class="row100 body" >
+                  <td class="cell100 column1">Nguyễn Vân Tân ML</td>
+                  <td class="cell100 column2">TanML@gmail.com</td>
+                  <td class="cell100 column3">1900100cos</td>
+                  <td class="cell100 column4">Quảng trị</td>
+                  <td class="cell100 column5">Bảo vệ</td>
+                  <td class="cell100 column6" >
+                    <select name="lock" id="lock" class="lock">
+                      <option value="Hoạt động">Hoạt động</option>
+                      <option value="1 Ngày">1 Ngày</option>
+                      <option value="3 Ngày">3 Ngày</option>
+                      <option value="7 Ngày">7 Ngày</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr class="row100 body" >
+                  <td class="cell100 column1">Nguyễn Vân Tân ML</td>
+                  <td class="cell100 column2">TanML@gmail.com</td>
+                  <td class="cell100 column3">1900100cos</td>
+                  <td class="cell100 column4">Quảng trị</td>
+                  <td class="cell100 column5">Bảo vệ</td>
+                  <td class="cell100 column6" >
+                    <select name="lock" id="lock" class="lock">
+                      <option value="Hoạt động">Hoạt động</option>
+                      <option value="1 Ngày">1 Ngày</option>
+                      <option value="3 Ngày">3 Ngày</option>
+                      <option value="7 Ngày">7 Ngày</option>
+                    </select>
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>

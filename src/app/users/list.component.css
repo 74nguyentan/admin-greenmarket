@@ -124,38 +124,21 @@ td img{
   width: 20%;
 }
 .column2 {
-  width: 15%;
-}
-.column3 {
-  width: 10%;
-}
-.column4 {
-  width: 10%;
-}
-
-.column5 {
-  width: 15%;
-}
-.column6 {
   width: 20%;
 }
-.column7{
+.column3 {
+  width: 15%;
+}
+.column4 {
+  width: 20%;
+}
+.column5 {
   width: 10%;
 }
- .column7 a{
-   margin-top: 20px;
-    color: black;
-    width: 90%;
-    height: 40px;
-    font-size: 15px;
-    text-align: center;
-    font-family: tahoma;
-    font-weight: 600;
- }
- .column7 a i {
-   margin-top: 8px;
-   font-size: 15px;
- }
+.column6 {
+  width: 15%;
+}
+
 .table100-head th {
   padding-top: 18px;
   padding-bottom: 18px;
@@ -564,4 +547,87 @@ border-color: #3276b1;
 }
 .btn-3 span:hover:after,.btn-2 span:hover:after,.btn-1 span:hover:after {
   width: 100%;
+}
+.lock{
+  border-radius: 5px;
+  border: none;
+  background-color: #00ad5f;
+  height: 45px;
+  width: 80%;
+  text-align: center;
+  font-family: tahoma;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+}
+
+input {
+  outline: none;
+}
+input[type=search] {
+  -webkit-appearance: textfield;
+  box-sizing: content-box;
+  font-family: tahoma;
+  font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+  display: none;
+}
+
+
+input[type=search] {
+  background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+  border: solid 1px #ccc;
+  padding: 9px 10px 9px 32px;
+  width: 75px;
+
+  -webkit-border-radius: 10em;
+  -moz-border-radius: 10em;
+  border-radius: 10em;
+
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  transition: all .5s;
+}
+input[type=search]:focus {
+  width: 200px;
+  background-color: #fff;
+  border-color: #66CC75;
+
+  -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+  -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+  box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+
+
+input:-moz-placeholder {
+  color: #999;
+}
+input::-webkit-input-placeholder {
+  color: #999;
+}
+
+/* Demo 2 */
+#demo-2 input[type=search] {
+  width: 15px;
+  padding-left: 10px;
+  color: transparent;
+  cursor: pointer;
+}
+#demo-2 input[type=search]:hover {
+  background-color: #fff;
+}
+#demo-2 input[type=search]:focus {
+  width: 200px;
+  padding-left: 32px;
+  color: #000;
+  background-color: #fff;
+  cursor: auto;
+}
+#demo-2 input:-moz-placeholder {
+  color: transparent;
+}
+#demo-2 input::-webkit-input-placeholder {
+  color: transparent;
 }
