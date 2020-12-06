@@ -13,8 +13,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { AppComponent } from './app.component';
 import { AlertComponent } from './_components';
-import { HomeComponent } from './home';;
-import { MyInformationComponent } from './my-information/my-information.component'
+import { HomeComponent } from './home';
+import { MatDialogModule } from '@angular/material/dialog';;
+import { SuccessDialogComponent } from './dialog/success-dialog/success-dialog.component';
+import { FailDialogComponent } from './dialog/fail-dialog/fail-dialog.component'
 
 @NgModule({
     imports: [
@@ -24,13 +26,16 @@ import { MyInformationComponent } from './my-information/my-information.componen
         AppRoutingModule,
         AngularFirestoreModule,
         AngularFireAuthModule,
+        MatDialogModule,
         AngularFireModule.initializeApp(environment.firebase)
     ],
     declarations: [
         AppComponent,
         AlertComponent,
-        HomeComponent
-    ],
+        HomeComponent,
+        SuccessDialogComponent
+,
+        FailDialogComponent    ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

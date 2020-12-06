@@ -30,7 +30,7 @@ export class AuthService {
     this.afAuth.authState.subscribe((user) => {
       if (user) {
         this.userData = user;
-        localStorage.setItem('user', JSON.stringify(this.userData));
+        localStorage.setItem('admin', JSON.stringify(this.userData));
         let email_user = user.email;
         let userr;
         UserServiceService.getUserByEmail(email_user).subscribe(data => {
@@ -39,8 +39,8 @@ export class AuthService {
           JSON.parse(sessionStorage.getItem('userr'));
         });
       } else {
-        localStorage.setItem('user', null);
-        JSON.parse(localStorage.getItem('user'));
+        localStorage.setItem('admin', null);
+        JSON.parse(localStorage.getItem('admin'));
       }
     });
   }
@@ -103,7 +103,7 @@ export class AuthService {
 
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem('user'));
+    const user = JSON.parse(localStorage.getItem('admin'));
     return (user !== null && user.emailVerified !== false) ? true : false;
   }
 
@@ -159,9 +159,10 @@ export class AuthService {
   // Sign out
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
+      localStorage.removeItem('admin');
       localStorage.removeItem('user');
       sessionStorage.setItem('userr', null);
-      this.router.navigate(['login']);
+      // this.router.navigate(['login']);
     });
   }
 }
