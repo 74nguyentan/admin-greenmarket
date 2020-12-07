@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./infor.component.css']
 })
 export class inforComponent implements OnInit {
-
+  isShowFormUser = false;
   constructor() { }
 
   ngOnInit(): void {
