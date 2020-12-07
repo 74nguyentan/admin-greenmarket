@@ -78,7 +78,7 @@ textarea:focus, input:focus {
 }
 .container-table100 {
   width: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   background: #fff;
   display: -webkit-box;
   display: -webkit-flex;
@@ -165,7 +165,7 @@ td img{
   left: 0;
 }
 .table100-body {
-  max-height: 585px;
+  max-height: 387px;
   overflow: auto;
 }
 /* [ Ver1 ] */
