@@ -15,7 +15,8 @@ import { AppComponent } from './app.component';
 import { AlertComponent } from './_components';
 import { HomeComponent } from './home';
 import { MatDialogModule } from '@angular/material/dialog';;
-import { SuccessDialogComponent } from './dialog/success-dialog/success-dialog.component';
+import { SuccessDialogComponent } from './dialog/success-dialog/success-dialog.component'
+;
 import { FailDialogComponent } from './dialog/fail-dialog/fail-dialog.component'
 
 @NgModule({
@@ -32,7 +33,8 @@ import { FailDialogComponent } from './dialog/fail-dialog/fail-dialog.component'
     declarations: [
         AppComponent,
         AlertComponent,
-        HomeComponent,
+        HomeComponent
+,
         SuccessDialogComponent
 ,
         FailDialogComponent    ],
