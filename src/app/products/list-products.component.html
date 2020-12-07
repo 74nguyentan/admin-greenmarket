@@ -64,6 +64,7 @@
                           <img
                             src="{{ item.hinh0 }}"
                             alt="Hình ảnh đang chờ load" class="d-block w-100" />
+
                         </div>
                         <!-- <div class="item">
                           <img
@@ -85,16 +86,13 @@
                   </td>
                   <td class="cell100 column7" >
                     <select name="lock" id="lock" class="lock mt-3">
-                      <option style="text-align: center;" value="Gia hạn">Gia hạn</option>
+                      <option value="Gia hạn"> &nbsp; &nbsp; &nbsp; Gia hạn</option>
                       <option value="1 Ngày">1 Ngày</option>
                       <option value="3 Ngày">3 Ngày</option>
                       <option value="7 Ngày">7 Ngày</option>
                     </select>
                     <button class="custom-btn btn-1 mt-4 mb-4" (click)="delete_product(item.id)">
                       <span><i class="fas fa-times"></i>  Xóa</span>
-                    </button>
-                    <button class="custom-btn btn-1">
-                      <span><i class="fas fa-clock"></i>  Khóa</span>
                     </button>
                   </td>
                 </tr>
