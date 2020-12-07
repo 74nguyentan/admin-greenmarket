@@ -11,6 +11,10 @@ export class ListProductsComponent implements OnInit {
   product : Products = new Products ;
   p: number;
 
+  onKey(tenHang: any) { // without type info
+    this.findbyname(tenHang);
+  }
+
   constructor(private productservice: ProductService, private route : Router) { }
 
   ngOnInit(): void {
@@ -49,4 +53,15 @@ export class ListProductsComponent implements OnInit {
   //   });
 
   // }
+
+  findbyname(tenHang: any){
+    this.product = new Products();
+    this.productservice.getProduct1(tenHang)
+    .subscribe(
+      data => {
+        this.product = data;
+        console.log(data);
+      },
+      error => console.log(error));
+    }
 }

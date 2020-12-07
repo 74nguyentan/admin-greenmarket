@@ -8,6 +8,8 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class ProductService {
   private baseurl = 'http://localhost:8000/greenmarket/api/mathang';
+  private url_tenhang = 'http://localhost:8000/greenmarket/api/mathang1'; 
+  
   constructor(private http: HttpClient) { }
 
   getProductList(): Observable<any> {
@@ -16,6 +18,10 @@ export class ProductService {
 
   deleteProduct(id: any): Observable<any> {
     return this.http.delete(`${this.baseurl}/${id}`);
+  }
+
+  getProduct1(tenHang: string): Observable<any> {
+    return this.http.get(`${this.url_tenhang}/${tenHang}`);
   }
 
 }

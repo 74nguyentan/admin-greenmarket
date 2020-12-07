@@ -18,7 +18,7 @@
         <div class="col-md-3">
           <!-- <input class="search"  type="search" placeholder="Nhập để tìm kiếm"> -->
           <div id="demo-2">
-            <input type="search" placeholder="Search">
+            <input type="search" placeholder="Search" (keyup)="onKey($event.target.value)">
           </div>
         </div>
       </div>
