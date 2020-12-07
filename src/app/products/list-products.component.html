@@ -18,9 +18,11 @@
         <div class="col-md-3">
           <!-- <input class="search"  type="search" placeholder="Nhập để tìm kiếm"> -->
           <div id="demo-2">
-            <input type="search" placeholder="Search">
+            <input type="search" placeholder="Search" (keyup)="onKey($event.target.value)">
           </div>
         </div>
+      </div>
+      <div class="col-9 mt-4">
       </div>
       <div class="wrap-table100">
         <div class="table100 ver4 ">
@@ -32,7 +34,6 @@
                   <th class="cell100 column2">Xuất sứ</th>
                   <th class="cell100 column3">Giá</th>
                   <th class="cell100 column4">Trạng thái</th>
-                  <th class="cell100 column5">Thời hạn</th>
                   <th class="cell100 column6">Hình ảnh</th>
                   <th class="cell100 column7">Quản lý</th>
                 </tr>
@@ -43,12 +44,11 @@
           <div class="table100-body js-pscroll">
             <table class="table table-hover">
               <tbody>
-                <tr class="row100 body" >
-                  <td class="cell100 column1">Nguyễn Vân Tân ML</td>
-                  <td class="cell100 column2">Quảng trị</td>
-                  <td class="cell100 column3">2 nghìn VNĐ</td>
-                  <td class="cell100 column4">Còn zin</td>
-                  <td class="cell100 column5">30 phút</td>
+                <tr class="row100 body" *ngFor=" let item of product ">
+                  <td class="cell100 column1">{{ item.tenHang }}</td>
+                  <td class="cell100 column2">{{ item.xuatXu }}</td>
+                  <td class="cell100 column3">{{ item.gia }}</td>
+                  <td class="cell100 column4">{{ item.trangThai }}</td>
                   <td class="cell100 column6">
                     <div id="carousel-simple" class="carousel slide" data-ride="carousel" style="width: 100%;">
                       <!-- Indicators -->
@@ -62,8 +62,9 @@
                       <div class="carousel-inner" role="listbox">
                         <div class="item active">
                           <img
-                            src="https://avatars2.githubusercontent.com/u/57336636?s=400&u=a61b8d32cf4043b444d8f18487e59a68edfe445f&v=4"
-                            alt="" class="d-block w-100" />
+                            src="{{ item.hinh0 }}"
+                            alt="Hình ảnh đang chờ load" class="d-block w-100" />
+
                         </div>
                         <!-- <div class="item">
                           <img
@@ -90,128 +91,11 @@
                       <option value="3 Ngày">3 Ngày</option>
                       <option value="7 Ngày">7 Ngày</option>
                     </select>
-                    <button class="custom-btn btn-1 mt-3 mb-3" >
-                      <span><i class="fas fa-list-ul"></i> Chi tiết</span>
-                    </button>
-                    <button class="custom-btn btn-2" >
-                      <span><i class="fas fa-times"></i> Xóa</span>
+                    <button class="custom-btn btn-1 mt-4 mb-4" (click)="delete_product(item.id)">
+                      <span><i class="fas fa-times"></i>  Xóa</span>
                     </button>
                   </td>
                 </tr>
-
-                <tr class="row100 body" >
-                  <td class="cell100 column1">Nguyễn Vân Tân ML</td>
-                  <td class="cell100 column2">Quảng trị</td>
-                  <td class="cell100 column3">2 nghìn VNĐ</td>
-                  <td class="cell100 column4">Còn zin</td>
-                  <td class="cell100 column5">30 phút</td>
-                  <td class="cell100 column6">
-                    <div id="carousel-simple" class="carousel slide" data-ride="carousel" style="width: 100%;">
-                      <!-- Indicators -->
-                      <!-- <ol class="carousel-indicators">
-                        <li data-target="#carousel-simple" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-simple" data-slide-to="1"></li>
-                        <li data-target="#carousel-simple" data-slide-to="2"></li>
-                        <li data-target="#carousel-simple" data-slide-to="3"></li>
-                      </ol> -->
-                      <!-- Wrapper for slides -->
-                      <div class="carousel-inner" role="listbox">
-                        <div class="item active">
-                          <img
-                            src="https://avatars2.githubusercontent.com/u/57336636?s=400&u=a61b8d32cf4043b444d8f18487e59a68edfe445f&v=4"
-                            alt="" class="d-block w-100" />
-                        </div>
-                        <!-- <div class="item">
-                          <img
-                            src=""
-                            alt="" class="d-block w-100" />
-                        </div>
-                        <div class="item">
-                          <img
-                            src=""
-                            alt="" class="d-block w-100" />
-                        </div>
-                        <div class="item">
-                          <img
-                            src=""
-                            alt="" class="d-block w-100" />
-                        </div> -->
-                      </div>
-                    </div>
-                  </td>
-                  <td class="cell100 column7" >
-                    <select name="lock" id="lock" class="lock mt-3">
-                      <option value="Gia hạn"> &nbsp; &nbsp; &nbsp; Gia hạn</option>
-                      <option value="1 Ngày">1 Ngày</option>
-                      <option value="3 Ngày">3 Ngày</option>
-                      <option value="7 Ngày">7 Ngày</option>
-                    </select>
-                    <button class="custom-btn btn-1 mt-3 mb-3" >
-                      <span><i class="fas fa-list-ul"></i> Chi tiết</span>
-                    </button>
-                    <button class="custom-btn btn-2" >
-                      <span><i class="fas fa-times"></i> Xóa</span>
-                    </button>
-                  </td>
-                </tr>
-
-                <tr class="row100 body" >
-                  <td class="cell100 column1">Nguyễn Vân Tân ML</td>
-                  <td class="cell100 column2">Quảng trị</td>
-                  <td class="cell100 column3">2 nghìn VNĐ</td>
-                  <td class="cell100 column4">Còn zin</td>
-                  <td class="cell100 column5">30 phút</td>
-                  <td class="cell100 column6">
-                    <div id="carousel-simple" class="carousel slide" data-ride="carousel" style="width: 100%;">
-                      <!-- Indicators -->
-                      <!-- <ol class="carousel-indicators">
-                        <li data-target="#carousel-simple" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-simple" data-slide-to="1"></li>
-                        <li data-target="#carousel-simple" data-slide-to="2"></li>
-                        <li data-target="#carousel-simple" data-slide-to="3"></li>
-                      </ol> -->
-                      <!-- Wrapper for slides -->
-                      <div class="carousel-inner" role="listbox">
-                        <div class="item active">
-                          <img
-                            src="https://avatars2.githubusercontent.com/u/57336636?s=400&u=a61b8d32cf4043b444d8f18487e59a68edfe445f&v=4"
-                            alt="" class="d-block w-100" />
-                        </div>
-                        <!-- <div class="item">
-                          <img
-                            src=""
-                            alt="" class="d-block w-100" />
-                        </div>
-                        <div class="item">
-                          <img
-                            src=""
-                            alt="" class="d-block w-100" />
-                        </div>
-                        <div class="item">
-                          <img
-                            src=""
-                            alt="" class="d-block w-100" />
-                        </div> -->
-                      </div>
-                    </div>
-                  </td>
-                  <td class="cell100 column7" >
-                    <select name="lock" id="lock" class="lock mt-3">
-                      <option value="Gia hạn"> &nbsp; &nbsp; &nbsp; Gia hạn</option>
-                      <option value="1 Ngày">1 Ngày</option>
-                      <option value="3 Ngày">3 Ngày</option>
-                      <option value="7 Ngày">7 Ngày</option>
-                    </select>
-                    <button class="custom-btn btn-1 mt-3 mb-3" >
-                      <span><i class="fas fa-list-ul"></i> Chi tiết</span>
-                    </button>
-                    <button class="custom-btn btn-2" >
-                      <span><i class="fas fa-times"></i> Xóa</span>
-                    </button>
-                  </td>
-                </tr>
-
-
               </tbody>
             </table>
           </div>
