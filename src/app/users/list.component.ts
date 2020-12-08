@@ -1,25 +1,33 @@
-﻿import { Component, OnInit } from '@angular/core';
-import { first } from 'rxjs/operators';
+﻿import { Observable } from 'rxjs';
+import { UserServiceService } from './../service/user-service.service';
+import { Users } from './../model/user';
+import { Component, OnInit } from '@angular/core';
 
-import { AccountService } from '@app/_services';
-
-@Component({ templateUrl: 'list.component.html',styleUrls: ['./list.component.css'] })
+@Component({ templateUrl: 'list.component.html', styleUrls: ['./list.component.css'] })
 export class ListComponent implements OnInit {
-    users = null;
+  users: Users
+  // users: Observable<Users[]>;
 
-    constructor(private accountService: AccountService) {}
+  constructor(
+    private userServiceService: UserServiceService
+  ) { }
 
-    ngOnInit() {
-        this.accountService.getAll()
-            .pipe(first())
-            .subscribe(users => this.users = users);
-    }
+  ngOnInit(): void  {
+    this.users = new Users();
+    this.userServiceService.getUserList().subscribe(data => {
+      console.log("data --- " + data);
 
-    deleteUser(id: string) {
-        const user = this.users.find(x => x.id === id);
-        user.isDeleting = true;
-        this.accountService.delete(id)
-            .pipe(first())
-            .subscribe(() => this.users = this.users.filter(x => x.id !== id));
-    }
+      this.users = data;
+    },
+      error => console.log("error:" + error)
+    )
+
+    // this.users = this.userServiceService.getUserList();
+    // console.log("userr: " + this.users);
+
+  }
+
+  deleteUser(id: string) {
+
+  }
 }

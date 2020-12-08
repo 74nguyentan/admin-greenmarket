@@ -18,6 +18,10 @@ export class UserServiceService {
     return this.http.post(`${this.baseUrl}`, Users);
   }
 
+  getUserList(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`);
+  }
+
   getUserById(id: any): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
@@ -29,11 +33,9 @@ export class UserServiceService {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
 
-  // deleteEmployee(id: number): Observable<any> {
-  //   return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
-  // }
+  deleteUser(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+  }
 
-  // getEmployeesList(): Observable<any> {
-  //   return this.http.get(`${this.baseUrl}`);
-  // }
+
 }

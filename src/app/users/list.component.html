@@ -1,177 +1,68 @@
-﻿<!-- <h1>Users</h1>
-<a routerLink="add" class="btn btn-sm btn-success mb-2">Add User</a>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th style="width: 30%">First Name</th>
-            <th style="width: 30%">Last Name</th>
-            <th style="width: 30%">Username</th>
-            <th style="width: 10%"></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let user of users">
-            <td>{{user.firstName}}</td>
-            <td>{{user.lastName}}</td>
-            <td>{{user.username}}</td>
-            <td style="white-space: nowrap">
-                <a routerLink="edit/{{user.id}}" class="btn btn-sm btn-primary mr-1">Edit</a>
-                <button (click)="deleteUser(user.id)" class="btn btn-sm btn-danger btn-delete-user" [disabled]="user.isDeleting">
-                    <span *ngIf="user.isDeleting" class="spinner-border spinner-border-sm"></span>
-                    <span *ngIf="!user.isDeleting">Delete</span>
-                </button>
-            </td>
-        </tr>
-        <tr *ngIf="!users">
-            <td colspan="4" class="text-center">
-                <span class="spinner-border spinner-border-lg align-center"></span>
-            </td>
-        </tr>
-    </tbody>
-</table> -->
+﻿<div class="limiter col-md-12" style="margin-top: 30px;">
+  <div class="container-table100">
 
 
-
-
-  <div class="limiter col-md-12" style="margin-top: 30px;">
-    <div class="container-table100">
-
-
-      <div class="row w-100 pb-3">
-        <div class="col-md-7 w-100 text-center">
-          <h1 > Danh sách người dùng</h1>
-        </div>
-        <div class="col-md-2" >
-          <a routerLink="adduser" >
-            <button class="custom-btn btn-3">
-              <span><i class="fas fa-edit"></i> Thêm mới</span>
-            </button>
-          </a>
-        </div>
-        <div class="col-md-3">
-          <!-- <input class="search"  type="search" placeholder="Nhập để tìm kiếm"> -->
-          <div id="demo-2">
-            <input type="search" placeholder="Search">
-          </div>
-        </div>
+    <div class="row w-100 pb-3">
+      <div class="col-md-7 w-100 text-center">
+        <h1 > Danh sách người dùng</h1>
       </div>
-      <div class="wrap-table100">
-        <div class="table100 ver4 ">
-          <div class="table100-head">
-            <table>
-              <thead >
-                <tr class="row100 head">
-                  <th class="cell100 column1">Họ và tên </th>
-                  <th class="cell100 column2">Email</th>
-                  <th class="cell100 column3">Điện thoại</th>
-                  <th class="cell100 column4">Địa chỉ</th>
-                  <th class="cell100 column5">Vai trò</th>
-                  <th class="cell100 column6">Trạng thái</th>
-                  <!-- <th class="cell100 column7"></th> -->
-                </tr>
-              </thead>
-            </table>
-          </div>
-
-          <div class="table100-body js-pscroll">
-            <table class="table table-hover">
-              <tbody>
-                <tr class="row100 body" >
-                  <td class="cell100 column1">Nguyễn Vân Tân ML</td>
-                  <td class="cell100 column2">TanML@gmail.com</td>
-                  <td class="cell100 column3">1900100cos</td>
-                  <td class="cell100 column4">Quảng trị</td>
-                  <td class="cell100 column5">Bảo vệ</td>
-                  <td class="cell100 column6" >
-                    <select name="lock" id="lock" class="lock">
-                      <option value="Hoạt động">Hoạt động</option>
-                      <option value="1 Ngày">1 Ngày</option>
-                      <option value="3 Ngày">3 Ngày</option>
-                      <option value="7 Ngày">7 Ngày</option>
-                    </select>
-                  </td>
-                </tr>
-                <tr class="row100 body" >
-                  <td class="cell100 column1">Nguyễn Vân Tân ML</td>
-                  <td class="cell100 column2">TanML@gmail.com</td>
-                  <td class="cell100 column3">1900100cos</td>
-                  <td class="cell100 column4">Quảng trị</td>
-                  <td class="cell100 column5">Bảo vệ</td>
-                  <td class="cell100 column6" >
-                    <select name="lock" id="lock" class="lock">
-                      <option value="Hoạt động">Hoạt động</option>
-                      <option value="1 Ngày">1 Ngày</option>
-                      <option value="3 Ngày">3 Ngày</option>
-                      <option value="7 Ngày">7 Ngày</option>
-                    </select>
-                  </td>
-                </tr>
-                <tr class="row100 body" >
-                  <td class="cell100 column1">Nguyễn Vân Tân ML</td>
-                  <td class="cell100 column2">TanML@gmail.com</td>
-                  <td class="cell100 column3">1900100cos</td>
-                  <td class="cell100 column4">Quảng trị</td>
-                  <td class="cell100 column5">Bảo vệ</td>
-                  <td class="cell100 column6" >
-                    <select name="lock" id="lock" class="lock">
-                      <option value="Hoạt động">Hoạt động</option>
-                      <option value="1 Ngày">1 Ngày</option>
-                      <option value="3 Ngày">3 Ngày</option>
-                      <option value="7 Ngày">7 Ngày</option>
-                    </select>
-                  </td>
-                </tr>
-                <tr class="row100 body" >
-                  <td class="cell100 column1">Nguyễn Vân Tân ML</td>
-                  <td class="cell100 column2">TanML@gmail.com</td>
-                  <td class="cell100 column3">1900100cos</td>
-                  <td class="cell100 column4">Quảng trị</td>
-                  <td class="cell100 column5">Bảo vệ</td>
-                  <td class="cell100 column6" >
-                    <select name="lock" id="lock" class="lock">
-                      <option value="Hoạt động">Hoạt động</option>
-                      <option value="1 Ngày">1 Ngày</option>
-                      <option value="3 Ngày">3 Ngày</option>
-                      <option value="7 Ngày">7 Ngày</option>
-                    </select>
-                  </td>
-                </tr>
-                <tr class="row100 body" >
-                  <td class="cell100 column1">Nguyễn Vân Tân ML</td>
-                  <td class="cell100 column2">TanML@gmail.com</td>
-                  <td class="cell100 column3">1900100cos</td>
-                  <td class="cell100 column4">Quảng trị</td>
-                  <td class="cell100 column5">Bảo vệ</td>
-                  <td class="cell100 column6" >
-                    <select name="lock" id="lock" class="lock">
-                      <option value="Hoạt động">Hoạt động</option>
-                      <option value="1 Ngày">1 Ngày</option>
-                      <option value="3 Ngày">3 Ngày</option>
-                      <option value="7 Ngày">7 Ngày</option>
-                    </select>
-                  </td>
-                </tr>
-                <tr class="row100 body" >
-                  <td class="cell100 column1">Nguyễn Vân Tân ML</td>
-                  <td class="cell100 column2">TanML@gmail.com</td>
-                  <td class="cell100 column3">1900100cos</td>
-                  <td class="cell100 column4">Quảng trị</td>
-                  <td class="cell100 column5">Bảo vệ</td>
-                  <td class="cell100 column6" >
-                    <select name="lock" id="lock" class="lock">
-                      <option value="Hoạt động">Hoạt động</option>
-                      <option value="1 Ngày">1 Ngày</option>
-                      <option value="3 Ngày">3 Ngày</option>
-                      <option value="7 Ngày">7 Ngày</option>
-                    </select>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
+      <div class="col-md-2" >
+        <a routerLink="adduser" >
+          <button class="custom-btn btn-3">
+            <span><i class="fas fa-edit"></i> Thêm mới</span>
+          </button>
+        </a>
+      </div>
+      <div class="col-md-3">
+        <!-- <input class="search"  type="search" placeholder="Nhập để tìm kiếm"> -->
+        <div id="demo-2">
+          <input type="search" placeholder="Search">
         </div>
       </div>
     </div>
-  </div>
+    <div class="wrap-table100">
+      <div class="table100 ver4 ">
+        <div class="table100-head">
+          <table>
+            <thead >
+              <tr class="row100 head">
+                <th class="cell100 column1">Họ và tên </th>
+                <th class="cell100 column2">Email</th>
+                <th class="cell100 column3">Điện thoại</th>
+                <th class="cell100 column4">Địa chỉ</th>
+                <th class="cell100 column5">Vai trò</th>
+                <th class="cell100 column6">Trạng thái</th>
+                <!-- <th class="cell100 column7"></th> -->
+              </tr>
+            </thead>
+          </table>
+        </div>
 
+        <div class="table100-body js-pscroll">
+          <table class="table table-hover">
+            <tbody>
+              <!-- <tr class="row100 body" *ngFor="let item of users | async">
+                <td class="cell100 column1"> {{item.hoVaTen}} </td>
+                <td class="cell100 column2"> {{item.email}} </td>
+                <td class="cell100 column3"> {{item.dienThoai}} </td>
+                <td class="cell100 column4"> {{item.diaChiUser}} </td>
+                <td class="cell100 column5"> {{item.vaiTro ? "Admin" : "Người dùng"}} </td>
+                <td class="cell100 column6" >
+                  <select name="lock" id="lock" class="lock">
+                    <option value="Hoạt động">Hoạt động</option>
+                    <option value="1 Ngày">1 Ngày</option>
+                    <option value="3 Ngày">3 Ngày</option>
+                    <option value="7 Ngày">7 Ngày</option>
+                    <option value="7 Ngày">Vĩnh viễn</option>
+                  </select>
+                </td>
+              </tr> -->
+
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
