@@ -5,25 +5,25 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({ templateUrl: 'list.component.html', styleUrls: ['./list.component.css'] })
 export class ListComponent implements OnInit {
-  users: Users
-  // users: Observable<Users[]>;
+  user: Users
+  // user: Observable<Users[]>;
 
   constructor(
     private userServiceService: UserServiceService
   ) { }
 
   ngOnInit(): void  {
-    this.users = new Users();
+    this.user = new Users();
     this.userServiceService.getUserList().subscribe(data => {
       console.log("data --- " + data);
 
-      this.users = data;
+      this.user = data;
     },
       error => console.log("error:" + error)
     )
 
-    // this.users = this.userServiceService.getUserList();
-    // console.log("userr: " + this.users);
+    // this.user = this.userServiceService.getUserList();
+    // console.log("userr: " + this.user);
 
   }
 
