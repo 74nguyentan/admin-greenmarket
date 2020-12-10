@@ -1,1 +1,18 @@
-<h1>thoong ke !</h1>
+<div class="row titlex mb-2">
+  <div class="col-4 tittle-home justify-content-center"> Top jj đó abv abv abv</div>
+  <div class="col-8 tittle-right"></div>
+  <hr />
+</div>
+<div class="row chartfa">
+  <div class="chart-wrapper col-12">
+    <canvas baseChart class="canvas mt-4 mb-3"
+    [datasets]="barChartData"
+    [labels]="barChartLabels"
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins"
+    [legend]="barChartLegend"
+    [chartType]="barChartType">
+    [colors]="chartColors"
+  </canvas>
+  </div>
+</div>

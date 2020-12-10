@@ -5,7 +5,7 @@ import { layoutThongKeComponent } from './layout-thongKe.component';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { ChartsModule } from 'ng2-charts';
 
 
 
@@ -13,7 +13,8 @@ import { CommonModule } from '@angular/common';
   declarations: [layoutThongKeComponent, thongKeComponent],
   imports: [
     CommonModule,
-    thongKeRoutingModule  ]
+    thongKeRoutingModule,
+    ChartsModule  ]
 })
 
 export class thongKeModule { }

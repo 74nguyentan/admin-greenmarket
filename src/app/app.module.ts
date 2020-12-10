@@ -18,16 +18,16 @@ import { MatDialogModule } from '@angular/material/dialog';;
 import { SuccessDialogComponent } from './dialog/success-dialog/success-dialog.component';
 import { FailDialogComponent } from './dialog/fail-dialog/fail-dialog.component'
 @NgModule({
-    imports: [
-        BrowserModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        AppRoutingModule,
-        AngularFirestoreModule,
-        AngularFireAuthModule,
-        MatDialogModule,
-        AngularFireModule.initializeApp(environment.firebase)
-    ],
+  imports: [
+      BrowserModule,
+      ReactiveFormsModule,
+      HttpClientModule,
+      AppRoutingModule,
+      AngularFirestoreModule,
+      AngularFireAuthModule,
+      MatDialogModule,
+      AngularFireModule.initializeApp(environment.firebase)
+  ],
     declarations: [
         AppComponent,
         AlertComponent,
