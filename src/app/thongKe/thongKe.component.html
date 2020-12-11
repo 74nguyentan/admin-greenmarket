@@ -4,7 +4,7 @@
   <hr />
 </div>
 <div class="row chartfa">
-  <div class="chart-wrapper col-12">
+  <div class="chart-wrapper col-12" *ngIf = "barChartLabels.length > 0">
     <canvas baseChart class="canvas mt-4 mb-3"
     [datasets]="barChartData"
     [labels]="barChartLabels"

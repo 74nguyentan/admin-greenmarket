@@ -1,19 +1,44 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
+import { ThongkeService } from '@app/service/thongke.service';
+import { Router } from '@angular/router';
+import { thongke } from '@app/model/Thongke';
 
 @Component({
   templateUrl: './thongKe.component.html',
   styleUrls: ['./thongKe.component.css']
 })
 export class thongKeComponent implements OnInit {
-
-  constructor() { }
+  thongke: Array<any> = [];
+  constructor(private ThongkeService: ThongkeService, private route: Router) { }
 
   ngOnInit(): void {
+    this.ThongkeService.getthongke().subscribe(data => {
+      this.thongke = data;
+      console.log(data);
+      
+      this.barChartData = [
+        {data: this.thongke.map(dataChart => dataChart.soluong), label: 'Tổng số',
+        backgroundColor: 'rgb(128, 214, 175)',
+        borderWidth:1,
+        borderColor:'#777',
+        hoverBorderWidth:1,
+        hoverBorderColor:'#000',
+        hoverBackgroundColor:'rgb(69, 212, 148)',}
+      ]
+
+      this.barChartLabels = this.thongke.map(dataLabel => dataLabel.hoVaTen)
+    });
   }
 
   barChartOptions: ChartOptions = {
+
+    title: {
+      text: 'Thống kê',
+      fontSize: 20
+    },
+
     responsive: true,
     scales: {
       yAxes: [{ticks: {fontSize: 18, fontFamily: "tahoma", fontColor: '#000', fontStyle: '500'}}],
@@ -21,30 +46,12 @@ export class thongKeComponent implements OnInit {
     },
 
   };
-  barChartLabels: Label[] = ['Nhật Bản', 'Hàn Quốc', 'Thái Lan', 'Việt Nam', 'Lào', 'Campuchia'];
+
+  // barChartLabels: Label[] = ['Nhật Bản', 'Hàn Quốc', 'Thái Lan', 'Việt Nam', 'Lào', 'Campuchia'];
+  barChartLabels: Label[];
   barChartType: ChartType = 'bar';
   barChartLegend = true;
   barChartPlugins = [];
 
-  barChartData: ChartDataSets[] = [
-    { data: [45, 27, 60, 70, 46, 33],
-      label: 'Tổng số',
-      backgroundColor: 'rgb(128, 214, 175)'
-      // [
-      //   'rgba(255, 99, 132, 0.6)',
-      //   'rgba(54, 162, 235, 0.6)',
-      //   'rgba(255, 206, 86, 0.6)',
-      //   'rgba(75, 192, 192, 0.6)',
-      //   'rgba(153, 102, 255, 0.6)',
-      //   'rgba(255, 159, 64, 0.6)'
-      // ]
-      ,
-      borderWidth:1,
-      borderColor:'#777',
-      hoverBorderWidth:1,
-      hoverBorderColor:'#000',
-      hoverBackgroundColor:'rgb(69, 212, 148)',
-
-    }
-  ];
+  barChartData: ChartDataSets[];
 }
