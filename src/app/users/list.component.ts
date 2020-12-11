@@ -22,8 +22,8 @@ export class ListComponent implements OnInit {
       error => console.log("error:" + error)
     )
 
-    // this.user = this.userServiceService.getUserList();
-    // console.log("userr: " + this.user);
+    // this.users = this.userServiceService.getUserList();
+    // console.log("userr: " + this.users);
 
   }
 
