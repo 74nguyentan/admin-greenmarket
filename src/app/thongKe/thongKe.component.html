@@ -1,5 +1,6 @@
+
 <div class="row titlex mb-2">
-  <div class="col-4 tittle-home justify-content-center"> Top jj đó abv abv abv</div>
+  <div class="col-4 tittle-home justify-content-center"> Top 10 người dùng đăng bài</div>
   <div class="col-8 tittle-right"></div>
   <hr />
 </div>
@@ -14,5 +15,42 @@
     [chartType]="barChartType">
     [colors]="chartColors"
   </canvas>
+  </div>
+</div>
+
+<div class="row titlex mt-4 mb-2">
+  <div class="col-5 tittle-home justify-content-center"> Top 10 mặt hàng có lượt xem nhiều nhất</div>
+  <div class="col-7 tittle-right"></div>
+  <hr />
+</div>
+<div class="row round">
+  <div class="col-12 container-content">
+    <canvas baseChart
+    [data]="pieChartData"
+    [labels]="pieChartLabels"
+    [chartType]="pieChartType"
+    [options]="pieChartOptions"
+    [plugins]="pieChartPlugins"
+    [legend]="pieChartLegend">
+  </canvas>
+  </div>
+</div>
+
+<div class="row titlex mt-4 mb-2">
+  <div class="col-5 tittle-home justify-content-center"> Top 10 mặt hàng được yêu thích nhất</div>
+  <div class="col-7 tittle-right"></div>
+  <hr />
+</div>
+<div class="row street">
+  <div class="col-12 chart-wrapper">
+    <canvas baseChart
+        [datasets]="lineChartData"
+        [labels]="lineChartLabels"
+        [options]="lineChartOptions"
+        [colors]="lineChartColors"
+        [legend]="lineChartLegend"
+        [chartType]="lineChartType"
+        [plugins]="lineChartPlugins">
+    </canvas>
   </div>
 </div>
