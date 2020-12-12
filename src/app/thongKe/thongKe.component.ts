@@ -11,6 +11,8 @@ import { thongke } from '@app/model/Thongke';
 })
 export class thongKeComponent implements OnInit {
   thongke: Array<any> = [];
+  thongke1: Array<any> = [];
+  thongke2: Array<any> = [];
   constructor(private ThongkeService: ThongkeService, private route: Router) {
     monkeyPatchChartJsTooltip();
     monkeyPatchChartJsLegend();
@@ -19,7 +21,7 @@ export class thongKeComponent implements OnInit {
   ngOnInit(): void {
     this.ThongkeService.getthongke().subscribe(data => {
       this.thongke = data;
-      this.thongke = data.filter((value,i) => i <= 3);
+      this.thongke = data.filter((value,i) => i <= 10);
       this.thongke = this.shuffle(this.thongke);
 
       console.log(data);
@@ -35,6 +37,28 @@ export class thongKeComponent implements OnInit {
       ]
 
       this.barChartLabels = this.thongke.map(dataLabel => dataLabel.hoVaTen)
+    });
+
+    this.ThongkeService.getthongkelichsu().subscribe(tkls =>{
+      this.thongke1 = tkls;
+      this.thongke1 = tkls.filter((value,i) => i <= 5);
+      this.thongke1 = this.shuffle(this.thongke1);
+
+      this.pieChartLabels = this.thongke1.map(tklsLable => tklsLable.tenHang)
+
+      this.pieChartData = this.thongke1.map(tklschart => tklschart.soluongmathang)
+    });
+
+    this.ThongkeService.getthongkeyeuthich().subscribe(tkyt =>{
+      this.thongke2 = tkyt;
+      this.thongke2 = tkyt.filter((value,i) => i <= 10);
+      this.thongke2 = this.shuffle(this.thongke2);
+      console.log(this.thongke2);
+      
+      this.lineChartData = [
+        {data: this.thongke2.map(tkytChart => tkytChart.soluongyeuthich), label: 'Tổng số'}]
+
+      this.lineChartLabels = this.thongke2.map(tkytLable => tkytLable.ten_hang);
     });
   }
 
@@ -84,19 +108,18 @@ export class thongKeComponent implements OnInit {
   public pieChartOptions: ChartOptions = {
     responsive: true,
   };
-  public pieChartLabels: Label[] = [['Hàng Tàu'], ['Hàng Nhái'], 'Hàng Hết Hạn'];
-  public pieChartData: SingleDataSet = [30, 50, 20];
+  // public pieChartLabels: Label[] = [['Hàng Tàu'], ['Hàng Nhái'], 'Hàng Hết Hạn'];
+  public pieChartLabels: Label[] ;
+  public pieChartData: SingleDataSet [];
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;
   public pieChartPlugins = [];
 
 
   // duong
-  lineChartData: ChartDataSets[] = [
-    { data: [85, 72, 78, 75, 77, 75], label: 'Tổng số' },
-  ];
+  lineChartData: ChartDataSets[];
 
-  lineChartLabels: Label[] = ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6'];
+  lineChartLabels: Label[];
 
   lineChartOptions = {
     responsive: true,

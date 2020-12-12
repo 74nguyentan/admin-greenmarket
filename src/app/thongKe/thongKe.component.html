@@ -24,7 +24,7 @@
   <hr />
 </div>
 <div class="row round">
-  <div class="col-12 container-content">
+  <div class="col-12 container-content" *ngIf = "pieChartLabels.length > 0">
     <canvas baseChart
     [data]="pieChartData"
     [labels]="pieChartLabels"
@@ -42,7 +42,7 @@
   <hr />
 </div>
 <div class="row street">
-  <div class="col-12 chart-wrapper">
+  <div class="col-12 chart-wrapper" *ngIf = "lineChartLabels.length > 0">
     <canvas baseChart
         [datasets]="lineChartData"
         [labels]="lineChartLabels"
