@@ -1,12 +1,93 @@
 ﻿<div class="container-fluid mt-4 mb-4">
-  <div class="title row">
+  <!-- <div class="title row">
     <div class="col-12">
-      <a>Xin chào đại ca {{user.firstName}}!</a>
+      <a>Xin chào đại ca {{user.firstName}} !</a>
+    </div>
+  </div> -->
+  <div class="row mb-4" style="margin-left: 15px;margin-right: 20px;">
+    <div class="col-6" style="padding-right: 30px;">
+      <div class="row titlex">
+        <div class="col-12 tittle-home justify-content-center"> Top 10 người dùng đăng bài</div>
+        <!-- <div class="col-8 tittle-right"></div> -->
+        <hr />
+      </div>
+      <div class="ftm row">
+        <div class="col-12 mb-4">
+          <div class="chart-wrapper">
+            <canvas baseChart
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                [plugins]="lineChartPlugins">
+            </canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6" style="padding-left: 30px;">
+      <div class="row titlex">
+        <div class="col-12 tittle-home justify-content-center"> Top 10 người dùng đăng bài</div>
+        <!-- <div class="col-8 tittle-right"></div> -->
+        <hr />
+      </div>
+      <div class="ftm row">
+        <div class="col-12 mb-4">
+          <div class="chart-wrapper">
+            <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [chartType]="barChartType">
+          </canvas>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-12">
-
+  <div class="row" style="margin-left: 15px;margin-right: 20px;">
+    <div class="col-6" style="padding-right: 30px;">
+      <div class="row titlex">
+        <div class="col-12 tittle-home justify-content-center"> Top 10 người dùng đăng bài</div>
+        <!-- <div class="col-8 tittle-right"></div> -->
+        <hr />
+      </div>
+      <div class="ftm row">
+        <div class="col-12 mb-4">
+          <div class="chart-wrapper">
+            <canvas baseChart
+            [data]="doughnutChartData"
+            [labels]="doughnutChartLabels"
+            [chartType]="doughnutChartType">
+          </canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6" style="padding-left: 30px;">
+      <div class="row titlex">
+        <div class="col-12 tittle-home justify-content-center"> Top 10 người dùng đăng bài</div>
+        <!-- <div class="col-8 tittle-right"></div> -->
+        <hr />
+      </div>
+      <div class="ftm row">
+        <div class="col-12 mb-4">
+          <div class="chart-wrapper">
+            <canvas baseChart
+            [datasets]="radarChartData"
+            [options]="radarChartOptions"
+            [labels]="radarChartLabels"
+            [chartType]="radarChartType">
+          </canvas>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+
