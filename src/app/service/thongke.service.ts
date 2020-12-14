@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ThongkeService {
-  private baseurl = 'http://localhost:8000/greenmarket/api/thongke';
-  private baseurl1 = 'http://localhost:8000/greenmarket/api/thongkelichsu';
-  private baseurl2 = 'http://localhost:8000/greenmarket/favourite/thongkeyeuthich';
+  private baseurl = 'http://localhost:8000/greenmarket/api/admin/thongke';
+  private baseurl1 = 'http://localhost:8000/greenmarket/api/admin/thongkelichsu';
+  private baseurl2 = 'http://localhost:8000/greenmarket/favourite/admin/thongkeyeuthich';
   constructor(private http: HttpClient) { }
 
   getthongke(): Observable<any> {
