@@ -10,7 +10,7 @@ export class UserServiceService {
   static getUserByEmail(email_user: string) {
     throw new Error('Method not implemented.');
   }
-  private baseUrlUse = 'http://localhost:8000/greenmarket/users/users';
+  private baseUrlUse = 'http://localhost:8000/greenmarket/qli/qli';
   // private baseurlPro = 'http://localhost:8000/greenmarket/api/mathang';
 
   constructor(private http: HttpClient) { }
@@ -21,8 +21,8 @@ export class UserServiceService {
   // getProductList(): Observable<any> {
   //   return this.http.get(`${this.baseurlPro}`);
   // }
-  getUsList(link): Observable<any> {
-    return this.http.get(`${link}`);
+  getUsList(): Observable<any> {
+    return this.http.get(`${this.baseUrlUse}`);
   }
 
   getUserById(id: any): Observable<any> {

@@ -1,7 +1,7 @@
 ﻿import { environment } from './../environments/environment';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
@@ -26,6 +26,7 @@ import { FailDialogComponent } from './dialog/fail-dialog/fail-dialog.component'
       AngularFirestoreModule,
       AngularFireAuthModule,
       MatDialogModule,
+      FormsModule,
       AngularFireModule.initializeApp(environment.firebase)
   ],
     declarations: [

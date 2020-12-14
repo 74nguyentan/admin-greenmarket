@@ -1,9 +1,30 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit, Inject } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators,FormControl ,AbstractControl} from '@angular/forms';
+import {
+  FormGroup,
+  Validators,
+  FormControl,
+  FormBuilder,
+  AbstractControl,
+} from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AccountService, AlertService } from '@app/_services';
+
+export function forbiddenUsername(users = []) {
+  return (c: AbstractControl) => {
+    return users.includes(c.value) ? { invalidusername: true } : null;
+  };
+}
+
+export function comparePassword(c: AbstractControl)  {
+  const v = c.value;
+  return v.matKhau === v.confirmPassword
+    ? null
+    : {
+      passwordnotmatch: true,
+    };
+}
 
 @Component({ templateUrl: 'add-edit.component.html',styleUrls: ['./add-edit.component.css']})
 export class AddEditComponent implements OnInit {
@@ -13,6 +34,26 @@ export class AddEditComponent implements OnInit {
     isAddMode: boolean;
     loading = false;
     submitted = false;
+
+
+  // check form cách 1: check trống và định dạng sdt và email
+  get primEmail() {
+    return this.check.get('email');
+  }
+  get phone() {
+    return this.check.get('dienThoai');
+  }
+  check = new FormGroup({
+    email: new FormControl('', [
+      Validators.required,
+      Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
+    ]),
+    dienThoai: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/((09|03|07|08|05)+([0-9]{8})\b)/g),
+    ]),
+  });
+
 
     constructor(
         private formBuilder: FormBuilder,
@@ -98,21 +139,6 @@ export class AddEditComponent implements OnInit {
             });
     }
 
-    get primEmail() {
-      return this.check.get('email');
-    }
-    get phone() {
-      return this.check.get('dienThoai');
-    }
-    check = new FormGroup({
-      email: new FormControl('', [
-        Validators.required,
-        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
-      ]),
-      dienThoai: new FormControl('', [
-        Validators.required,
-        Validators.pattern(/((09|03|07|08|05)+([0-9]{8})\b)/g),
-      ]),
-    });
+
 
 }
