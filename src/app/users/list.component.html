@@ -25,14 +25,14 @@
         <div class="table100-head">
           <table>
             <thead >
-              <tr class="row100 head">
+              <tr class="row100 head text-center">
                 <th class="cell100 column1">Họ và tên </th>
                 <th class="cell100 column2">Email</th>
                 <th class="cell100 column3">Điện thoại</th>
                 <th class="cell100 column4">Địa chỉ</th>
                 <th class="cell100 column5">Vai trò</th>
                 <th class="cell100 column6">Trạng thái</th>
-                <!-- <th class="cell100 column7"></th> -->
+                <th class="cell100 column7"> </th>
               </tr>
             </thead>
           </table>
@@ -41,7 +41,7 @@
         <div class="table100-body js-pscroll">
           <table class="table table-hover">
             <tbody>
-              <!-- <tr class="row100 body" *ngFor="let item of user | async">
+              <tr class="row100 body text-center" *ngFor="let item of user ">
                 <td class="cell100 column1"> {{item.hoVaTen}} </td>
                 <td class="cell100 column2"> {{item.email}} </td>
                 <td class="cell100 column3"> {{item.dienThoai}} </td>
@@ -50,13 +50,18 @@
                 <td class="cell100 column6" >
                   <select name="lock" id="lock" class="lock">
                     <option value="Hoạt động">Hoạt động</option>
-                    <option value="1 Ngày">1 Ngày</option>
-                    <option value="3 Ngày">3 Ngày</option>
-                    <option value="7 Ngày">7 Ngày</option>
-                    <option value="7 Ngày">Vĩnh viễn</option>
+                    <option value="1 Ngày">Khóa 1 Ngày</option>
+                    <option value="3 Ngày">Khóa 3 Ngày</option>
+                    <option value="7 Ngày">Khóa 7 Ngày</option>
+                    <option value="7 Ngày">Khóa vĩnh viễn</option>
                   </select>
                 </td>
-              </tr> -->
+                <td class="cell100 column7">
+                  <button class="custom-btn btn-1" >
+                    <span> Chỉnh sửa</span>
+                  </button>
+                </td>
+              </tr>
 
             </tbody>
           </table>

@@ -6,6 +6,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { ChartsModule } from 'ng2-charts';
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers';
 
@@ -26,7 +27,8 @@ import { FailDialogComponent } from './dialog/fail-dialog/fail-dialog.component'
       AngularFirestoreModule,
       AngularFireAuthModule,
       MatDialogModule,
-      AngularFireModule.initializeApp(environment.firebase)
+      AngularFireModule.initializeApp(environment.firebase),
+      ChartsModule
   ],
     declarations: [
         AppComponent,
