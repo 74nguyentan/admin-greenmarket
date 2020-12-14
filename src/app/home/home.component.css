@@ -3,3 +3,23 @@
   font-size: 30px;
   color: #00ad5f;
 }
+.titlex{
+  /* margin-left: 15px;
+  margin-right: 20px; */
+  text-align: center;
+}
+.tittle-home {
+  background-color: #fff;
+  font-family: tahoma;
+  font-size: 23px;
+  color: black;
+  padding: 15px 23px 15px 22px;
+  border-radius: 10px 10px 0px 0px;
+}
+.tittle-right {
+  border-bottom: solid 4px #ffffff;
+}
+.ftm{
+  border-radius: 0px 0px 10px 10px;
+  background-color: white;
+}
