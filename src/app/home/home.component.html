@@ -7,13 +7,58 @@
   <div class="row mb-4" style="margin-left: 15px;margin-right: 20px;">
     <div class="col-6" style="padding-right: 30px;">
       <div class="row titlex">
-        <div class="col-12 tittle-home justify-content-center"> Top 10 người dùng đăng bài</div>
+        <div class="col-12 tittle-home justify-content-center"> Top người dùng đăng bài</div>
         <!-- <div class="col-8 tittle-right"></div> -->
         <hr />
       </div>
       <div class="ftm row">
         <div class="col-12 mb-4">
-          <div class="chart-wrapper">
+          <div class="chart-wrapper" *ngIf = "barChartLabels.length > 0">
+            <canvas baseChart class="canvas "
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [plugins]="barChartPlugins"
+              [legend]="barChartLegend"
+              [chartType]="barChartType">
+              [colors]="chartColors"
+            </canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6" style="padding-left: 30px;">
+      <div class="row titlex">
+        <div class="col-12 tittle-home justify-content-center">Top mặt hàng có lượt xem nhiều nhất</div>
+        <!-- <div class="col-8 tittle-right"></div> -->
+        <hr />
+      </div>
+      <div class="ftm row">
+        <div class="col-12 mb-4">
+          <div class="container-content" *ngIf = "pieChartLabels.length > 0">
+            <canvas baseChart
+              [data]="pieChartData"
+              [labels]="pieChartLabels"
+              [chartType]="pieChartType"
+              [options]="pieChartOptions"
+              [plugins]="pieChartPlugins"
+              [legend]="pieChartLegend">
+            </canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-left: 15px;margin-right: 20px;">
+    <div class="col-6" style="padding-right: 30px;">
+      <div class="row titlex">
+        <div class="col-12 tittle-home justify-content-center">Top mặt hàng được yêu thích nhất</div>
+        <!-- <div class="col-8 tittle-right"></div> -->
+        <hr />
+      </div>
+      <div class="ftm row">
+        <div class="col-12 mb-4">
+          <div class="chart-wrapper" *ngIf = "lineChartLabels.length > 0">
             <canvas baseChart
                 [datasets]="lineChartData"
                 [labels]="lineChartLabels"
@@ -29,7 +74,7 @@
     </div>
     <div class="col-6" style="padding-left: 30px;">
       <div class="row titlex">
-        <div class="col-12 tittle-home justify-content-center"> Top 10 người dùng đăng bài</div>
+        <div class="col-12 tittle-home justify-content-center">Top danh mục bán hàng</div>
         <!-- <div class="col-8 tittle-right"></div> -->
         <hr />
       </div>
@@ -37,52 +82,10 @@
         <div class="col-12 mb-4">
           <div class="chart-wrapper">
             <canvas baseChart
-            [datasets]="barChartData"
-            [labels]="barChartLabels"
-            [options]="barChartOptions"
-            [plugins]="barChartPlugins"
-            [legend]="barChartLegend"
-            [chartType]="barChartType">
-          </canvas>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row" style="margin-left: 15px;margin-right: 20px;">
-    <div class="col-6" style="padding-right: 30px;">
-      <div class="row titlex">
-        <div class="col-12 tittle-home justify-content-center"> Top 10 người dùng đăng bài</div>
-        <!-- <div class="col-8 tittle-right"></div> -->
-        <hr />
-      </div>
-      <div class="ftm row">
-        <div class="col-12 mb-4">
-          <div class="chart-wrapper">
-            <canvas baseChart
-            [data]="doughnutChartData"
-            [labels]="doughnutChartLabels"
-            [chartType]="doughnutChartType">
-          </canvas>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-6" style="padding-left: 30px;">
-      <div class="row titlex">
-        <div class="col-12 tittle-home justify-content-center"> Top 10 người dùng đăng bài</div>
-        <!-- <div class="col-8 tittle-right"></div> -->
-        <hr />
-      </div>
-      <div class="ftm row">
-        <div class="col-12 mb-4">
-          <div class="chart-wrapper">
-            <canvas baseChart
-            [datasets]="radarChartData"
-            [options]="radarChartOptions"
-            [labels]="radarChartLabels"
-            [chartType]="radarChartType">
-          </canvas>
+              [data]="doughnutChartData"
+              [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType">
+            </canvas>
           </div>
         </div>
       </div>
