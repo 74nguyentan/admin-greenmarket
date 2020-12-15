@@ -5,6 +5,7 @@ import { MyInformationComponent } from './my-information.component';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +14,8 @@ import { CommonModule } from '@angular/common';
   declarations: [MyInformationComponent, inforComponent],
   imports: [
     CommonModule,
-    inforRoutingModule
+    inforRoutingModule,
+    FormsModule
   ]
 })
 

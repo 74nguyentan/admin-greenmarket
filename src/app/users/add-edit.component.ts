@@ -13,6 +13,9 @@ import { AccountService, AlertService } from '@app/_services';
 import { AuthService } from '@app/service/auth.service';
 import { UserServiceService } from '@app/service/user-service.service';
 import { Users } from '@app/model/user';
+import { MatDialog } from '@angular/material/dialog';
+import { SuccessDialogComponent } from '@app/dialog/success-dialog/success-dialog.component';
+import { FailDialogComponent } from '@app/dialog/fail-dialog/fail-dialog.component';
 
 export function forbiddenUsername(users = []) {
   return (c: AbstractControl) => {
@@ -63,6 +66,8 @@ export class AddEditComponent implements OnInit {
 
 
   constructor(
+    @Inject(MatDialog) public data: any,
+    private dialog: MatDialog,
     private fb: FormBuilder,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -144,53 +149,53 @@ export class AddEditComponent implements OnInit {
                 this.authService.SignUp(this.Users.email, this.Users.matKhau);
                 this.Users = new Users();
                 this.router.navigate(['users']);
-                // const confirmDialog = this.dialog.open(SuccessDialogComponent, {
-                //   data: {
-                //     title: 'Thành Công !',
-                //     message:'Một email chứa mã xác nhận đã được gửi tới bạn'
-                //   },
-                // });
+                const confirmDialog = this.dialog.open(SuccessDialogComponent, {
+                  data: {
+                    title: 'Thành Công !',
+                    message:'Một email chứa mã xác nhận đã được gửi tới bạn'
+                  },
+                });
               },
               (error) => {
                 console.log('error ----> : ' + error);
-                // const confirmDialog = this.dialog.open(FailDialogComponent, {
-                //   data: {
-                //     title: 'Thất bại !',
-                //     message: 'Vui lòng nhập đúng thông tin và thử lại !',
-                //   },
-                // });
+                const confirmDialog = this.dialog.open(FailDialogComponent, {
+                  data: {
+                    title: 'Thất bại !',
+                    message: 'Vui lòng nhập đúng thông tin và thử lại !',
+                  },
+                });
               }
             );
           } else {
             console.log("----erro sdt");
             this.sdt = true;
-            // const confirmDialog = this.dialog.open(FailDialogComponent, {
-            //   data: {
-            //     title: 'Thất bại !',
-            //     message: 'Số điện thoại của bạn không đúng !',
-            //   },
-            // });
+            const confirmDialog = this.dialog.open(FailDialogComponent, {
+              data: {
+                title: 'Thất bại !',
+                message: 'Số điện thoại của bạn không đúng !',
+              },
+            });
           }
         } else {
           this.sdt = true;
           console.log("----erro email");
-          // const confirmDialog = this.dialog.open(FailDialogComponent, {
-          //   data: {
-          //     title: 'Thất bại !',
-          //     message: 'Nhập đúng định dạng email !',
-          //   },
-          // });
+          const confirmDialog = this.dialog.open(FailDialogComponent, {
+            data: {
+              title: 'Thất bại !',
+              message: 'Nhập đúng định dạng email !',
+            },
+          });
         }
       } else {
         this.sdt = true;
         console.log("----erro mk");
 
-        // const confirmDialog = this.dialog.open(FailDialogComponent, {
-        //   data: {
-        //     title: 'Thất bại !',
-        //     message: 'Nhập đúng mật khẩu !',
-        //   },
-        // });
+        const confirmDialog = this.dialog.open(FailDialogComponent, {
+          data: {
+            title: 'Thất bại !',
+            message: 'Nhập đúng mật khẩu !',
+          },
+        });
       }
 
 
