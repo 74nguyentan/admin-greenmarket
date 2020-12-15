@@ -7,6 +7,7 @@ import { User } from './_models';
 export class AppComponent {
   user: User;
   // active = false;
+  img = "https://drive.google.com/uc?export=download&id=1Od1WIhRJ9E_WW50dNvJnxMFrRYGmfyxB"
   constructor(private accountService: AccountService) {
     this.accountService.user.subscribe(x => this.user = x);
   }

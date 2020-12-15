@@ -16,7 +16,7 @@
       <div class="col-md-3">
         <!-- <input class="search"  type="search" placeholder="Nhập để tìm kiếm"> -->
         <div id="demo-2">
-          <input type="search" placeholder="Search">
+          <input type="search" placeholder="Search" (keyup)="onKey($event.target.value)">
         </div>
       </div>
     </div>
@@ -41,9 +41,9 @@
         <div class="table100-body js-pscroll">
           <table class="table table-hover">
             <tbody>
-              <tr class="row100 body text-center" *ngFor="let item of user ">
-                <td class="cell100 column1"> {{item.hoVaTen}} </td>
-                <td class="cell100 column2"> {{item.email}} </td>
+              <tr class="row100 body " *ngFor="let item of user ">
+                <td class="cell100 column1 text-left" > {{item.hoVaTen}} </td>
+                <td class="cell100 column2 text-left"> {{item.email}} </td>
                 <td class="cell100 column3"> {{item.dienThoai}} </td>
                 <td class="cell100 column4"> {{item.diaChiUser}} </td>
                 <td class="cell100 column5"> {{item.vaiTro ? "Admin" : "Người dùng"}} </td>
