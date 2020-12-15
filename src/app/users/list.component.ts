@@ -1,8 +1,9 @@
-﻿import { Observable } from 'rxjs';
+﻿// import { Observable } from 'rxjs';
 import { UserServiceService } from './../service/user-service.service';
 import { Users } from './../model/user';
 import { Component, OnInit } from '@angular/core';
-import { Products } from '@app/model/Product';
+// import { Products } from '@app/model/Product';
+import { Router } from '@angular/router';
 
 @Component({ templateUrl: 'list.component.html', styleUrls: ['./list.component.css'] })
 export class ListComponent implements OnInit {
@@ -11,6 +12,7 @@ export class ListComponent implements OnInit {
   // user : any;
   constructor(
     private userServiceService: UserServiceService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -47,6 +49,9 @@ export class ListComponent implements OnInit {
           console.log(data);
         },
         error => console.log(error));
+  }
+  Update(id: number) {
+    this.router.navigate(['edit', id]);
   }
 }
 
