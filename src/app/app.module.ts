@@ -17,8 +17,8 @@ import { AlertComponent } from './_components';
 import { HomeComponent } from './home';
 import { MatDialogModule } from '@angular/material/dialog';;
 import { SuccessDialogComponent } from './dialog/success-dialog/success-dialog.component';
-import { FailDialogComponent } from './dialog/fail-dialog/fail-dialog.component';;
-import { ComfimDialogComponent } from './dialog/comfim-dialog/comfim-dialog.component'
+import { FailDialogComponent } from './dialog/fail-dialog/fail-dialog.component';
+import { ComfimDialogComponent } from './dialog/comfim-dialog/comfim-dialog.component';
 
 @NgModule({
   imports: [
@@ -38,7 +38,8 @@ import { ComfimDialogComponent } from './dialog/comfim-dialog/comfim-dialog.comp
         AlertComponent,
         HomeComponent,
         SuccessDialogComponent,
-        FailDialogComponent,
+        FailDialogComponent
+,
         ComfimDialogComponent
        ],
     providers: [

@@ -7,8 +7,6 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./comfim-dialog.component.css']
 })
 export class ComfimDialogComponent implements OnInit {
-
-
   title: string;
   message: string;
   constructor(public dialogRef: MatDialogRef<ComfimDialogComponent>,
