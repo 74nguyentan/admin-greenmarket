@@ -8,13 +8,14 @@ const accountModule = () => import('./account/account.module').then(x => x.Accou
 const usersModule = () => import('./users/users.module').then(x => x.UsersModule);
 const ProductsModule = () => import('./products/products.module').then(x => x.ProductsModule);
 const myInformation = () => import('./my-information/myInformation.module').then(x => x.myInformation);
+const ReportModule = () => import('./report/report.module').then(x => x.ReportModule);
 
 const routes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard] },
     { path: 'myinfor', loadChildren: myInformation, canActivate: [AuthGuard] },
     { path: 'products', loadChildren: ProductsModule, canActivate: [AuthGuard] },
-
+    { path: 'report', loadChildren: ReportModule, canActivate: [AuthGuard] },
     { path: 'account', loadChildren: accountModule },
 
     // otherwise redirect to home
