@@ -1,9 +1,11 @@
 ﻿// import { Observable } from 'rxjs';
 import { UserServiceService } from './../service/user-service.service';
 import { Users } from './../model/user';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 // import { Products } from '@app/model/Product';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ComfimDialogComponent } from '@app/dialog/comfim-dialog/comfim-dialog.component';
 
 @Component({ templateUrl: 'list.component.html', styleUrls: ['./list.component.css'] })
 export class ListComponent implements OnInit {
@@ -12,7 +14,10 @@ export class ListComponent implements OnInit {
   // user : any;
   constructor(
     private userServiceService: UserServiceService,
-    private router: Router
+    private router: Router,
+    @Inject(MatDialog) public data: any,
+    private route: ActivatedRoute,
+    private dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -28,8 +33,27 @@ export class ListComponent implements OnInit {
       error => console.log("error user > :" + error)
     )
   }
-  deleteUser(id: string) {
 
+  deleteUser(id: any) {
+    const confirmDialog = this.dialog.open(ComfimDialogComponent, {
+      data: {
+        title: 'Bạn có muốn xóa ?',
+        mesage: 'bạn cần làm lại ... !',
+      },
+    });
+    confirmDialog.afterClosed().subscribe((result) => {
+      console.log("resultttt --- " + result);
+
+      if (result === true) {
+        this.userServiceService.deleteUser(id)
+          .subscribe(
+            data => {
+              console.log("data>>>> " + data);
+              this.loadUser();
+            },
+            error => console.log(error));
+      }
+    });
   }
   onKey(hoVaten: any) { // without type info
     if (hoVaten == null || hoVaten == '') {

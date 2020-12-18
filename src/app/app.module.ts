@@ -1,6 +1,7 @@
 ﻿import { environment } from './../environments/environment';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AngularFireModule } from "@angular/fire";
@@ -15,7 +16,7 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { AppComponent } from './app.component';
 import { AlertComponent } from './_components';
 import { HomeComponent } from './home';
-import { MatDialogModule } from '@angular/material/dialog';;
+import { MatDialogModule } from '@angular/material/dialog';
 import { SuccessDialogComponent } from './dialog/success-dialog/success-dialog.component';
 import { FailDialogComponent } from './dialog/fail-dialog/fail-dialog.component';
 import { ComfimDialogComponent } from './dialog/comfim-dialog/comfim-dialog.component';
@@ -31,15 +32,15 @@ import { ComfimDialogComponent } from './dialog/comfim-dialog/comfim-dialog.comp
       MatDialogModule,
       AngularFireModule.initializeApp(environment.firebase),
       ChartsModule,
-      FormsModule
+      FormsModule,
+      BrowserAnimationsModule
   ],
     declarations: [
         AppComponent,
         AlertComponent,
         HomeComponent,
         SuccessDialogComponent,
-        FailDialogComponent
-,
+        FailDialogComponent,
         ComfimDialogComponent
        ],
     providers: [

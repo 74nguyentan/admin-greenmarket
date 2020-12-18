@@ -1,8 +1,10 @@
-<h1 mat-dialog-title class="text-center"><i  class="fas fa-trash-alt text-danger"></i> &nbsp; {{data.title}}</h1>
+
+  <h1 mat-dialog-title class="text-center" style="font-size: 30px;"><i  class="fas fa-trash-alt text-danger"></i> &nbsp; {{data.title}}</h1>
 <div mat-dialog-content  class="text-center">
   {{data.message}}
 </div>
-<div style="float:right;margin:20px;">
+<div style="text-align: center;">
   <input class="btn-configg "  type="button" value="Yes" [mat-dialog-close]="true">
   <input class="btn-cancel" type="button" value="Cancel"  [mat-dialog-close]="false">
 </div>
+
