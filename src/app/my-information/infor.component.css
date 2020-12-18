@@ -320,6 +320,10 @@ iframe {
   position: relative;
   width: 100%;
   z-index: 1;
+  font-family: tahoma;
+}
+.wrap-input100 label {
+  font-size: 20px;
 }
 .input100 {
   font-size: 18px;
@@ -469,6 +473,14 @@ iframe {
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
+}
+.fas{
+  font-size: 15px;
+  /* font-weight: 600; */
+  /* font-family: tahoma; */
+}
+.fas:hover{
+  color: green;
 }
 
 .login100-form-btn:hover {
