@@ -41,8 +41,8 @@ export class ReportComponent implements OnInit {
   delete_product(id: number) {
     const confirmDialog = this.dialog.open(ComfimDialogComponent, {
       data: {
-        title: 'Bạn có muốn xóa ?',
-        mesage: 'bạn cân làm lại ... !',
+        title: 'Xóa sản phẩm ?',
+        mesage: 'Bạn có muốn xóa ?',
       },
     });
     confirmDialog.afterClosed().subscribe((result) => {
@@ -64,8 +64,8 @@ export class ReportComponent implements OnInit {
 
     const confirmDialog = this.dialog.open(ComfimDialogComponent, {
       data: {
-        title: 'Bạn có muốn xóa ?',
-        mesage: 'bạn cân làm lại ... !',
+        title: 'Mở khóa sản phẩm ?',
+        mesage: 'Bạn có muốn mở khóa sản phẩm này ?',
       },
     });
     confirmDialog.afterClosed().subscribe((result) => {

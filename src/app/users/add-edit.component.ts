@@ -152,7 +152,7 @@ export class AddEditComponent implements OnInit {
                 const confirmDialog = this.dialog.open(SuccessDialogComponent, {
                   data: {
                     title: 'Thành Công !',
-                    message:'Một email chứa mã xác nhận đã được gửi tới bạn'
+                    // message:'Bạn đã thêm một tài khoản mới !'
                   },
                 });
               },

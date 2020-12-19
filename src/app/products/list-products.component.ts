@@ -16,7 +16,12 @@ export class ListProductsComponent implements OnInit {
   p: number;
 
   onKey(tenHang: any) { // without type info
-    this.findbyname(tenHang);
+    if (tenHang == null || tenHang == '') {
+      this.load_product();
+    }
+    else {
+      this.findbyname(tenHang);
+    }
   }
 
   constructor(
@@ -104,11 +109,11 @@ export class ListProductsComponent implements OnInit {
         },
         error => {
           console.log("error update user ---------> "+error);
-          const confirmDialog = this.dialog.open(FailDialogComponent, {
-            data: {
-              title: 'Thất bại !',
-            },
-          });
+          // const confirmDialog = this.dialog.open(FailDialogComponent, {
+          //   data: {
+          //     title: 'Thất bại !',
+          //   },
+          // });
         });
   }
 }
